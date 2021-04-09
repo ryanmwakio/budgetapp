@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ExpenseForm = ({charge,amount,handleAmount,handleCharge,handleSubmit}) => {
+const ExpenseForm = ({charge,amount,handleAmount,handleCharge,handleSubmit,edit}) => {
     return (
         <form onSubmit={handleSubmit}>
             <div className="form-center">
@@ -10,10 +10,10 @@ const ExpenseForm = ({charge,amount,handleAmount,handleCharge,handleSubmit}) => 
                 </div>
                 <div className="form-group">
                     <label htmlFor="amount">amount</label>
-                    <input type="number" name="amount" id="amount" className="form-control" placeholder="e.g. 10000" value={amount} onChange={handleAmount}/>
+                    <input type="number" name="amount" id="amount" className="form-control" placeholder="e.g. 30000" value={amount} onChange={handleAmount}/>
                 </div>
             </div>
-            <button type="submit" className="btn">submit <i className="fas fa-long-arrow-right btn-icon"></i></button>
+            <button type="submit" className="btn">{edit ? 'edit' : 'submit'} <i className={edit ? "fas fa-pencil btn-icon" : "fas fa-long-arrow-right btn-icon"}></i></button>
         </form>
     );
 }
